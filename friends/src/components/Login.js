@@ -1,5 +1,5 @@
 import React from 'react';
-import connect from 'react-redux'; 
+import {connect} from 'react-redux'; 
 
 //import call to action login function
 import{login} from '../actions';
@@ -42,23 +42,32 @@ class Login extends React.Component{
 
    render(){
        return(
-           <form onSubmit={}>
+           <form onSubmit={this.login}>
                <input 
                type='text'
                name="username"
-               onchange={changeHandler}
+               onchange={this.changeHandler}
                placeholder="username"
                 />
 
 <input 
                type='password'
                name="password"
-               onchange={changeHandler}
+               onchange={this.changeHandler}
                placeholder="password"
                 />
+
+                <button>Login</button>
            </form>
        )
    }
+}
+
+
+//create mstp
+//pass state as prop
+const mapStateToProps = state =>{
+
 }
 
 
