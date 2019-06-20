@@ -31,3 +31,6 @@ ReactDOM.render(
 //7. Creat Login form
 //8 create actions
 //9 create reducers
+//10. Test login
+//11 Fetch data
+//12 Create Friends component

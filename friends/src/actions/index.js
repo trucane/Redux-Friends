@@ -17,7 +17,7 @@ export const login = creds => dispatch =>{
 
     //call axios to api
     axios
-    .post('http//:localhost:5000/login', creds)
+    .post('http://localhost:5000/api/login', creds)
     .then( res => {
 
         // 200 success set token to local storage then next()/dispatch to next action
@@ -27,4 +27,8 @@ export const login = creds => dispatch =>{
     //if failure get error
     .catch(err => console.log(err.response))
 }
+
+
+//after login works and token is successfully passed start coding for fetching data
+
 
