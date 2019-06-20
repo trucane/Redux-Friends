@@ -12,7 +12,9 @@ import reducer from './reducers';
 
 
 //2. create store, add reducer as object
-const store = createStore(reducer);
+//6. create middleware and pass logger and thunk objects
+const middleware = applyMiddleware(logger, thunk)
+const store = createStore(reducer, middleware);
 
 
 
@@ -26,3 +28,4 @@ ReactDOM.render(
 
 //4. Create reducers folder, and index.js file.
 //5. create a state object and an export reducer function.
+//7. Creat Login form
