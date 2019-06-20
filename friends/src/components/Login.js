@@ -46,14 +46,14 @@ class Login extends React.Component{
                <input 
                type='text'
                name="username"
-               onchange={this.changeHandler}
+               onChange={this.changeHandler}
                placeholder="username"
                 />
 
 <input 
                type='password'
                name="password"
-               onchange={this.changeHandler}
+               onChange={this.changeHandler}
                placeholder="password"
                 />
 
@@ -66,9 +66,9 @@ class Login extends React.Component{
 
 //create mstp
 //pass state as prop
-const mapStateToProps = state =>{
-
-}
+const mapStateToProps = state =>({
+    loggingIn:state.loggingIn
+})
 
 
 export default connect(mapStateToProps, {login})(Login);

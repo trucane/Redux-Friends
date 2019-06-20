@@ -37,6 +37,9 @@ const reducer = (state = initialState, action) => {
                 error:'',
                 loggingIn:false
             };
+
+        default:
+            return state
     }
 
     //go to component login and create onclick login function
