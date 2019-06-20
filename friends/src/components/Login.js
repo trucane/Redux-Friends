@@ -1,6 +1,9 @@
 import React from 'react';
 import connect from 'react-redux'; 
 
+//import call to action login function
+import{login} from '../actions';
+
 
 
 
@@ -17,6 +20,14 @@ class Login extends React.Component{
             username:'',
             password:''
         }
+    }
+
+    // create login on click function
+    login = (e) =>{
+        e.preventDefault();
+        //invoke imported login action pass in credentials
+        this.props.login(this.state.credentials)
+        //import component login to App.js
     }
 
     changeHandler = (e) =>{

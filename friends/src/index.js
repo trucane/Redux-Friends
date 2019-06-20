@@ -29,3 +29,5 @@ ReactDOM.render(
 //4. Create reducers folder, and index.js file.
 //5. create a state object and an export reducer function.
 //7. Creat Login form
+//8 create actions
+//9 create reducers
