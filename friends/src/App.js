@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Login from './components/Login';
+import FreindsList from './components/FreindsList';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Router>
       <div className="App">
         <Route path="/login"     component={Login}  />
+        <Route path="/friends"     component={FreindsList}  />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>

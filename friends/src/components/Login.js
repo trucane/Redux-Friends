@@ -25,9 +25,15 @@ class Login extends React.Component{
     // create login on click function
     login = (e) =>{
         e.preventDefault();
-        //invoke imported login action pass in credentials
-        this.props.login(this.state.credentials)
-        //import component login to App.js
+        if(this.state.credentials.username.trim() === '' || this.state.credentials.password.trim() === '' ){
+
+            console.log('empty')
+        }else{
+            //invoke imported login action pass in credentials
+            this.props.login(this.state.credentials)
+            this.props.history.push('/friends')
+            //import component login to App.js
+        }
     }
 
     changeHandler = (e) =>{

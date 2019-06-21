@@ -3,14 +3,18 @@
 
 //back from action...
 //import Login call to action
-import {LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL} from '../actions'
+import {
+    LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL,
+    FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL
+} from '../actions'
 
 
 const initialState = {
     friends:[],
     //add to inital state for login
     error:'',
-    loggingIn:false
+    loggingIn:false,
+    fetchingData:false
 }
 
 
@@ -34,8 +38,29 @@ const reducer = (state = initialState, action) => {
         case LOGIN_FAIL:
             return{
                 ...state,
-                error:'',
+                error:'Bad Loggin',
                 loggingIn:false
+            };
+
+        case FETCH_DATA_START:
+            return{
+                ...state,
+                error:'',
+                fetchingData:true
+            };
+
+        case FETCH_DATA_SUCCESS:
+            return{
+                ...state,
+                friends:action.payload,
+                fetchingData:false
+            };
+
+        case FETCH_DATA_FAIL:
+            return{
+                ...state,
+                error:'Couldnt retreive Data',
+                fetchingData:false
             };
 
         default:

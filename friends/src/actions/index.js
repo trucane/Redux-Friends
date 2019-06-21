@@ -1,5 +1,6 @@
 //import axios
 import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 //create exportable call to action variables
 
@@ -16,7 +17,7 @@ export const login = creds => dispatch =>{
     dispatch({ type: LOGIN_START});
 
     //call axios to api
-    axios
+    axiosWithAuth()
     .post('http://localhost:5000/api/login', creds)
     .then( res => {
 
@@ -30,5 +31,33 @@ export const login = creds => dispatch =>{
 
 
 //after login works and token is successfully passed start coding for fetching data
+export const FETCH_DATA_START = "FETCH_DATA_START";
+export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
+export const FETCH_DATA_FAIL = "FETCH_DATA_FAIL";
+
+export const getFriends = () => dispatch =>{
+    console.log('I am fetching data')
+    dispatch({ type: FETCH_DATA_START});
+
+    axiosWithAuth()
+    .get('http://localhost:5000/api/friends')
+    .then(res =>{
+        dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
+    })
+    .catch(err => console.log(err.response))
+}
+
+
+export const deleteFriend = (id) => dispatch =>{
+    console.log('I am th id', id)
+    dispatch({ type: FETCH_DATA_START});
+
+    axiosWithAuth()
+    .delete(`http://localhost:5000/api/friends/${id}`)
+    .then(res =>{
+        dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
+    })
+    .catch(err => console.log(err.response))
+}
 
 
